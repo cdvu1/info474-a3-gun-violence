@@ -16,7 +16,6 @@ var valueline = d3.line()
 .x(function(d) { return x(d.Year); })
 .y(function(d) { return y(d.Total_Shootings); });
 
-
 // append the svg obgect to the body of the page
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
@@ -26,6 +25,12 @@ var svg = d3.select("body").append("svg")
   .append("g")
   .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
+
+// Create Tooltip 
+  var div = d3.select("body").append("div")	
+      .attr("class", "tooltip")				
+      .style("opacity", 0);
+      
 
 // Get the data
 d3.csv("clean_data.csv", function(error, data) {
@@ -47,6 +52,28 @@ d3.csv("clean_data.csv", function(error, data) {
       .attr("class", "line")
       .attr("d", valueline);
 
+  // Add the scatterplot
+  svg.selectAll("dot")	
+  .data(data)			
+  .enter().append("circle")								
+  .attr("r", 3)		
+  .attr("cx", function(d) { return x(d.Year); })		 
+  .attr("cy", function(d) { return y(d.Total_Shootings); })		
+  .on("mouseover", function(d) {		
+      div.transition()		
+          .duration(200)		
+          .style("opacity", 5);		
+      div.html("<div>Year:</div>" + d.Year + "<br/>" +
+      "<div>Total Shootings:</div>" + d.Total_Shootings)
+          .style("left", (d3.event.pageX) + "px")		
+          .style("top", (d3.event.pageY - 28) + "px");	
+      })					
+  .on("mouseout", function(d) {		
+      div.transition()		
+          .duration(500)		
+          .style("opacity", 0);	
+  });
+
   // Add the X Axis
   svg.append("g")
       .attr("transform", "translate(0," + height + ")")
@@ -55,10 +82,4 @@ d3.csv("clean_data.csv", function(error, data) {
   // Add the Y Axis
   svg.append("g")
       .call(d3.axisLeft(y));
-
 });
-
-
-
-// do by year 2008 - 2018
-// can see trends by gender 
