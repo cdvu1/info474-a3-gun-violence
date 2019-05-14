@@ -1,18 +1,5 @@
-<<<<<<< HEAD
 .line {
     fill: none;
     stroke: steelblue;
     stroke-width: 2px;
   }
-=======
-.axis {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
->>>>>>> 251e2eb3432dbb8c5828a6797686fcd04ba7e457
