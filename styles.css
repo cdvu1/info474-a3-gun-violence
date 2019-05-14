@@ -12,12 +12,15 @@ body {
 
 div.tooltip {
   position: absolute;
-  text-align: center;
+  text-align: left;
   font: 12px sans-serif;
-  background: lightsteelblue;
+  background: rgb(240, 240, 240);
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
+  padding: 10px;
+  border-bottom-left-radius: 0;
+  box-shadow: 0px 5px 5px 1px rgba(0, 0, 0, 0.2);
 }
 .line {
   fill: none;

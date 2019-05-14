@@ -24,7 +24,7 @@ var valueline = d3
 // appends a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
 var svg = d3
-  .select("body")
+  .select("#graph")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
@@ -88,14 +88,15 @@ d3.csv("clean_data.csv", function(error, data) {
         .style("opacity", 5);
       div
         .html(
-          "<div>Year:</div>" +
+          "<div><b>Year</b>: " +
             d.Year +
-            "<br/>" +
-            "<div>Total Shootings:</div>" +
-            d.Total_Shootings
+            "</div><br/>" +
+            "<div><b>Total Shootings</b>: " +
+            d.Total_Shootings +
+            "</div>"
         )
         .style("left", d3.event.pageX + "px")
-        .style("top", d3.event.pageY - 28 + "px");
+        .style("top", d3.event.pageY - 65 + "px");
     })
     .on("mouseout", function(d) {
       div
