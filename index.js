@@ -13,8 +13,8 @@ var y = d3.scaleLinear().range([height, 0]);
 
 // define the line
 var valueline = d3.line()
-.x(function(d) { return x(d.year); })
-.y(function(d) { return y(d.total_killed); });
+.x(function(d) { return x(d.Year); })
+.y(function(d) { return y(d.Total_Shootings); });
 
 
 // append the svg obgect to the body of the page
@@ -28,18 +28,18 @@ var svg = d3.select("body").append("svg")
         "translate(" + margin.left + "," + margin.top + ")");
 
 // Get the data
-d3.csv("data.csv", function(error, data) {
+d3.csv("clean_data.csv", function(error, data) {
   if (error) throw error;
 
   // format the data
   data.forEach(function(d) {
-      d.year = +d.year;
-      d.total_killed = +d.total_killed;
+      d.Year = +d.Year;
+      d.Total_Shootings = +d.Total_Shootings;
   });
 
   // Scale the range of the data
-  x.domain(d3.extent(data, function(d) { return d.year; }));
-  y.domain([0, d3.max(data, function(d) { return d.total_killed; })]);
+  x.domain(d3.extent(data, function(d) { return d.Year; }));
+  y.domain([0, d3.max(data, function(d) { return d.Total_Shootings; })]);
 
   // Add the valueline path.
   svg.append("path")
