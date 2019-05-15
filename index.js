@@ -1,11 +1,8 @@
 // set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 50},
-width = 960 - margin.left - margin.right,
+width = 1000 - margin.left - margin.right,
 height = 500 - margin.top - margin.bottom;
 console.log(margin);
-
-// parse year
-//var parseYear = d3.time.format("%Y").parse;
 
 // set the ranges
 var x = d3.scaleTime().range([0, width]);
@@ -25,12 +22,6 @@ var svg = d3.select("body").append("svg")
   .append("g")
   .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")")
-
-
-// Create Tooltip 
-var div = d3.select("body").append("div")	
-      .attr("class", "tooltip")				
-      .style("opacity", 0);
   
 function drawGraph(xText, yText) {
 	$('svg').remove();
@@ -73,35 +64,28 @@ function drawGraph(xText, yText) {
       // don't want dots overlapping axis, so add in buffer to data domain
       xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
       yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
-    console.log
-    // scales w/o extra padding
-    //  xScale.domain([d3.min(data, xValue), d3.max(data, xValue)]);
-    //  yScale.domain([d3.min(data, yValue), d3.max(data, yValue)]);
   
       // x-axis
       svg.append("g")
-        .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
-      .append("text")
-        .attr("class", "label")
-        .attr("x", width)
-        .attr("y", -6)
-        .style("text-anchor", "end")
+      svg.append("text")             
+        .attr("transform",
+              "translate(" + (width/2) + " ," + 
+                             (height + margin.top + 10) + ")")
+        .style("text-anchor", "middle")
         .text(xText);
   
       // y-axis
       svg.append("g")
-        .attr("class", "y axis")
         .call(yAxis)
-      .append("text")
-        .attr("class", "label")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text(yText);
-
+      svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left + 20)
+      .attr("x", 0 - (height / 2))
+      .style("text-anchor", "middle")
+      .text(yText);
+        
       // draw dots
       svg.selectAll(".dot")
         .data(data)

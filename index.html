@@ -10,16 +10,18 @@
   <script src="styles.css"></script>
   
   <div> 
-    <h4>Y-Axis</h4>
-    <select id="y-value">
+    <h4>X-Axis</h4>
+    <select id="x-value">
       <option value="Random Victims">Random Victims</option>
       <option value="Targeted Victims">Targeted Victims</option>
     </select>
 
-    <h4>X-Axis</h4>
-    <select id="x-value">
-      <option value="Killed">Killed</option>
+    <h4>Y-Axis</h4>
+    <select id="y-value">
+      <option value="Killed (includes shooter)">Killed</option>
       <option value="Wounded">Wounded</option>
+      <option value="Total Injured/Killed Victims">Total Injured/Killed Victims</option>
+
     </select>
     <button id="submit" onclick="setGraph()">submit</button>
   </div>
