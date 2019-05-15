@@ -8,7 +8,21 @@
   <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
   <script src="index.js"></script>
   <script src="styles.css"></script>
+  
+  <div> 
+    <h4>Y-Axis</h4>
+    <select id="y-value">
+      <option value="Random Victims">Random Victims</option>
+      <option value="Targeted Victims">Targeted Victims</option>
+    </select>
 
+    <h4>X-Axis</h4>
+    <select id="x-value">
+      <option value="Killed">Killed</option>
+      <option value="Wounded">Wounded</option>
+    </select>
+    <button id="submit" onclick="setGraph()">submit</button>
+  </div>
 
 </body>
 </html>
