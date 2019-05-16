@@ -1,10 +1,4 @@
-.line {
-    fill: none;
-    stroke: steelblue;
-    stroke-width: 2px;
-  }
-
-  body { 
+body { 
     font: 12px Arial;
   }
 
@@ -29,4 +23,10 @@
 .label {
   font-size: 20px;
   color: black;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
 }
