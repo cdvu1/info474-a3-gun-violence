@@ -17,32 +17,60 @@ function drawGraph(xText, yText) {
    // change string (from CSV) into number format
 	  data.forEach(function(d) {
       d[yText] = +d[yText]
-      if (d[xText] == "N") {
-        d[xText] = 0
-      } else if (d[xText] == "Y"){
-        d[xText] = 1
-      } else if (d[xText] == "Unknown") {
-        d[xText] = 2
-      } else {
-        d[xText] = 3
-      }
+      // d[xText] = +d[xText]
     });
+  
+    var xName = d3.nest()
+    .key(function(d) { 
+      return d[xText]; 
+    })
+    .rollup(function(v) { return v.length; })
+    .entries(data);
+    console.log(xText)
+    console.log(xName)
+    
+    var yName = d3.nest()
+    .key(function(d) { return d[yText]; })
+    .rollup(function(v) { return v.length; })
+    .entries(data);
 
-      // setup x 
-      var xValue = function(d) { return d[xText];}, // data -> value
-      xScale = d3.scaleLinear().range([0, width]), // value -> display
-      xMap = function(d) { return xScale(xValue(d));}, // data -> display
-      xAxis = d3.axisBottom().scale(xScale);
+    let test = (Object.values(xName[0]))
+    // console.log(test)
+    // console.log(test.filter((obj) => obj[yText] === 1).length)
 
-      // setup y
-      var yValue = function(d) { return d[yText];}, // data -> value
-      yScale = d3.scaleLinear().range([height, 0]), // value -> display
-      yMap = function(d) { return yScale(yValue(d));}, // data -> display
-      yAxis = d3.axisLeft().scale(yScale);
-        
-      // don't want dots overlapping axis, so add in buffer to data domain
-      xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
-      yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+    let keys = []
+    for (i=0; i<yName.length; i++) {
+      keys.push(parseInt(yName[i].key))
+    }
+
+    let allData = []
+
+    for (j=0; j<xName.length; j++) {
+      for (i=0; i<keys.length; i++) {
+        let temp = (Object.values(xName[j]))
+        let temp2 = (temp.filter((obj) => obj[yText] === keys[i]).length)
+        var object = {outcome : Object.values(xName[j])[0],  bin:keys[i], count : temp2}
+        allData.push(object)
+      }
+    }
+
+    console.log(allData)
+     
+     // setup x 
+     var xValue = function(d) { return d[xText];}, // data -> value
+     xScale = d3.scaleLinear().range([0, width]), // value -> display
+     xMap = function(d) { return xScale(xValue(d));}, // data -> display
+     xAxis = d3.axisBottom().scale(xScale);
+
+     // setup y
+     var yValue = function(d) { return d[yText];}, // data -> value
+     yScale = d3.scaleLinear().range([height, 0]), // value -> display
+     yMap = function(d) { return yScale(yValue(d));}, // data -> display
+     yAxis = d3.axisLeft().scale(yScale);
+       
+     // don't want dots overlapping axis, so add in buffer to data domain
+     xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
+     yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
 
       // x-axis
       svg.append("g")
@@ -96,7 +124,7 @@ function drawGraph(xText, yText) {
       function redraw(xText, yText) {
         data.forEach(function(d) {
           d[yText] = +d[yText];
-          d[xText] = +d[xText]
+          // d[xText] = +d[xText]
           // if (d[xText] == "N") {
           //   d[xText] = 0
           // } else if (d[xText] == "Y"){
@@ -113,8 +141,19 @@ function drawGraph(xText, yText) {
           .range([0, width])
           // .domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
    
-
-        // setup x 
+          var xName = d3.nest()
+          .key(function(d) { return d[xText]; })
+          .rollup(function(v) { return v.length; })
+          .entries(data);
+          console.log(xName)
+          
+          var yName = d3.nest()
+          .key(function(d) { return d[yText]; })
+          .rollup(function(v) { return v.length; })
+          .entries(data);
+          console.log(yName)
+       
+          // setup x 
         var xValue = function(d) { return d[xText];}, // data -> value
         xScale = d3.scaleLinear().range([0, width]), // value -> display
         xMap = function(d) { return xScale(xValue(d));}, // data -> display
