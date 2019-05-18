@@ -145,7 +145,7 @@ function drawGraph(xText, yText) {
       })
 
 
-      function redraw(xText, yText) {
+      function redraw(xText, yTexTt) {
 
         d3.csv("gun_violence_data.csv", function(error, data) {
           if (error) throw error;
