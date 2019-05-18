@@ -80,6 +80,9 @@ function drawGraph(xText, yText) {
     }
 
     console.log(allData);
+    d3.select("#graph-d-title").text(xText + " vs " + yText)
+
+
     //setup x
     var xValue = function(d) {
         return d[xText];
@@ -222,6 +225,7 @@ function drawGraph(xText, yText) {
         xScale.domain([d3.min(data, xValue) - 1, d3.max(data, xValue) + 1]);
         yScale.domain([d3.min(data, yValue) - 1, d3.max(data, yValue) + 1]);
 
+        d3.select("#graph-d-title").text(xText + " vs " + yText)
         // re-render axis based on the new data
         svg_2.selectAll(".xaxisText").text(xText);
         svg_2.selectAll(".yaxisText").text(yText);

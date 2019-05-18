@@ -53,7 +53,7 @@ line {
   margin: 25px;
   align-self: center;
 }
-#text {
+.text {
   margin: 25px;
 }
 h4 {
@@ -88,6 +88,9 @@ h4 {
 #panel {
   margin-bottom: 85px;
 }
+
 #dropDown {
   display: inline-block;
+  margin: 0 auto;
 }
+

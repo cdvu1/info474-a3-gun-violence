@@ -12,7 +12,7 @@
   <div id="top-section">
     <div class="container">
       <div class="row" id="title">
-        <h4>10 Years of School Shootings</h1>
+        <h4>10 Years of School Shootings</h4>
       </div>
       <div class="row">
         <div class="slides">
@@ -41,7 +41,7 @@
                           </div>
                       </div>
                     </center> -->
-                    <div id="text">
+                    <div className="text">
                       <h5>The number of school shootings each year for the past 10 years.</h5>
                       <p>The number of school shootings occurring each year has been increasing. This simple line chart shows just that. We also wanted to show how certain weapons are used more frequently than others. Using the drop down menu, you can see how frequently certain types or combinations of different firearms were used in school shootings over the past ten years. </p>
                     </div>
@@ -50,8 +50,10 @@
               </div>
             </div>
           <div class="col-md-12 slide">
-            <div id="graph-d"></div>
-            <div id="dropDown"> 
+            <div id="graph-d">
+              <h4 id="graph-d-title"></h4>
+            </div>
+            <div id="dropDown graph2-dropdown"> 
               <h4>X-Axis</h4>
               <select id="x-value">
                 <option value="Random Victims">Random Victims</option>
@@ -67,8 +69,17 @@
                 <option value="Total Injured/Killed Victims">Total Injured/Killed Victims</option>
               </select>
               <!-- <button id="submit" onclick="setGraph()">submit</button> -->
+
+        
               
             </div>
+
+            <div className="text">
+                <h5>Binary Attributes of Shootings vs. Attributes of Affected People</h5>
+                <p>There are numerous attributes that arre difficult to understand the patterns and trends of shootings overall. This dual axis dot plot shows us 
+                  different types of causualities and their counts (killed, wounded, total injured) and yes/no data such as if it was a domestic violence relationship, targeted videos, bullying or random victims. 
+                   </p>
+                 </div>
           </div>
         </div>
       </div>
