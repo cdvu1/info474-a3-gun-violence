@@ -1,15 +1,60 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<body>
-  <link href="styles.css" rel="stylesheet">
-  <script src="http://d3js.org/d3.v4.min.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
-  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  <head>
+    <link href="styles.css" rel="stylesheet">
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+  <div id="top-section">
+    <div class="container">
+      <div class="row" id="title">
+        <h4>10 Years of School Shootings</h1>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+            <div id="graph">
+              
+            </div>
+            <div>
+                <center id="filters">
+                  <b>Weapon type: </b> <select id="weapon-type"></select>
+                </center>
+              </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="panel">
+              <center>
+                <div id="controls">
+                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                      <div class="btn-group mr-2" role="group" aria-label="First group">
+                        <button type="button" id="btn-1" class="btn btn-primary">1</button>
+                        <button type="button" id="btn-2" class="btn btn-light">2</button>
+                        <button type="button" id="btn-3" class="btn btn-light">3</button>
+                        <button type="button" id="btn-4" class="btn btn-light">4</button>
+                      </div>
+                    </div>
+                </div>
+              </center>
+              <div id="text">
+                <h5>The number of school shootings each year for the past 10 years.</h5>
+                <p>The number of school shootings occurring each year has been increasing. This simple line chart shows just that. We also wanted to show how certain weapons are used more frequently than others.</p>
+              </div>
+              
+            </div>
+        </div>
+      </div>
+  </div>
   <script src="index.js"></script>
-  <script src="styles.css"></script>
-  
-  <div className="title"></div>
+  <div id="graph-d"></div>
   <div id="dropDown"> 
     <h4>X-Axis</h4>
     <select id="x-value">
@@ -29,8 +74,6 @@
     <!-- <button id="submit" onclick="setGraph()">submit</button> -->
     
   </div>
-  <div id="graph"></div>
-
 </body>
 </html>
 
