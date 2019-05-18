@@ -5,7 +5,7 @@ body {
 .axis path,
 .axis line {
   fill: none;
-  stroke: grey;
+  stroke: rgb(174, 174, 174);
   stroke-width: 1;
   shape-rendering: crispEdges;
 }
@@ -14,7 +14,7 @@ div.tooltip {
   position: absolute;
   text-align: left;
   font: 12px sans-serif;
-  background: rgb(240, 240, 240);
+  background: rgb(255, 255, 255);
   border: 0px;
   border-radius: 8px;
   pointer-events: none;
@@ -24,8 +24,14 @@ div.tooltip {
 }
 .line {
   fill: none;
-  stroke: red;
+  stroke: #ff0000;
   stroke-width: 2px;
+}
+g circle {
+  fill: #000000;
+}
+g circle:hover {
+  cursor: pointer;
 }
 line {
   stroke: rgb(200, 200, 200);
@@ -35,6 +41,7 @@ line {
 }
 #controls {
   margin: 25px;
+  align-self: center;
 }
 #text {
   margin: 25px;
@@ -49,9 +56,18 @@ h4 {
 #title {
   height: 60px;
   padding-top: 15px;
+  background-color: "white";
 }
 #top-section {
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(245, 245, 245);
   width: 100vw;
   overflow: hidden;
+}
+#filters {
+  margin-bottom: 20px;
+}
+#weapon-type {
+  margin-left: 10px;
+  height: 30px;
+  border-color: "red";
 }
