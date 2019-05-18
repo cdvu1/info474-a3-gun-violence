@@ -15,7 +15,8 @@
         <h4>10 Years of School Shootings</h1>
       </div>
       <div class="row">
-          <div class="col-md-12">
+        <div class="slides">
+          <div class="col-md-12 slide">
             <div id="graph">
               
             </div>
@@ -25,55 +26,55 @@
                 </center>
               </div>
           </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div id="panel">
+                    <!-- <center>
+                      <div id="controls">
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                              <button type="button" id="btn-1" class="btn btn-primary">1</button>
+                              <button type="button" id="btn-2" class="btn btn-light">2</button>
+                              <button type="button" id="btn-3" class="btn btn-light">3</button>
+                              <button type="button" id="btn-4" class="btn btn-light">4</button>
+                            </div>
+                          </div>
+                      </div>
+                    </center> -->
+                    <div id="text">
+                      <h5>The number of school shootings each year for the past 10 years.</h5>
+                      <p>The number of school shootings occurring each year has been increasing. This simple line chart shows just that. We also wanted to show how certain weapons are used more frequently than others. Using the drop down menu, you can see how frequently certain types or combinations of different firearms were used in school shootings over the past ten years. </p>
+                    </div>
+                    
+                  </div>
+              </div>
+            </div>
+          <div class="col-md-12 slide">
+            <div id="graph-d"></div>
+            <div id="dropDown"> 
+              <h4>X-Axis</h4>
+              <select id="x-value">
+                <option value="Random Victims">Random Victims</option>
+                <option value="Targeted Specific Victim(s)">Targeted Victims</option>
+                <option value="Bullied (Y/N/ N/A)">Bullied</option>
+                <option value="Domestic Violence (Y/N)">Domestic Violence</option>
+                <option value="Pre-planned school attack">Pre-planned school attack</option>
+              </select>
+              <h4>Y-Axis</h4>
+              <select id="y-value">
+                <option value="Killed (includes shooter)">Killed (includes shooter)</option>
+                <option value="Wounded">Wounded</option>
+                <option value="Total Injured/Killed Victims">Total Injured/Killed Victims</option>
+              </select>
+              <!-- <button id="submit" onclick="setGraph()">submit</button> -->
+              
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div id="panel">
-              <center>
-                <div id="controls">
-                  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                      <div class="btn-group mr-2" role="group" aria-label="First group">
-                        <button type="button" id="btn-1" class="btn btn-primary">1</button>
-                        <button type="button" id="btn-2" class="btn btn-light">2</button>
-                        <button type="button" id="btn-3" class="btn btn-light">3</button>
-                        <button type="button" id="btn-4" class="btn btn-light">4</button>
-                      </div>
-                    </div>
-                </div>
-              </center>
-              <div id="text">
-                <h5>The number of school shootings each year for the past 10 years.</h5>
-                <p>The number of school shootings occurring each year has been increasing. This simple line chart shows just that. We also wanted to show how certain weapons are used more frequently than others.</p>
-              </div>
-              
-            </div>
-        </div>
-      </div>
-  </div>
   <script src="index.js"></script>
-  <div id="graph-d"></div>
-  <div id="dropDown"> 
-    <h4>X-Axis</h4>
-    <select id="x-value">
-      <option value="Random Victims">Random Victims</option>
-      <option value="Targeted Specific Victim(s)">Targeted Victims</option>
-      <option value="Bullied (Y/N/ N/A)">Bullied</option>
-      <option value="Domestic Violence (Y/N)">Domestic Violence</option>
-      <option value="Pre-planned school attack">Pre-planned school attack</option>
-    </select>
-    
-    <h4>Y-Axis</h4>
-    <select id="y-value">
-      <option value="Killed (includes shooter)">Killed (includes shooter)</option>
-      <option value="Wounded">Wounded</option>
-      <option value="Total Injured/Killed Victims">Total Injured/Killed Victims</option>
-    </select>
-    <!-- <button id="submit" onclick="setGraph()">submit</button> -->
-    
-  </div>
 </body>
 </html>
 
