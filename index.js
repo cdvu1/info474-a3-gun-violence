@@ -60,10 +60,13 @@ function drawGraph(xText, yText) {
 
     console.log(allData)
      //setup x 
+     
+    
      var xValue = function(d) { return d[xText];}, // data -> value
      xScale = d3.scaleLinear().range([0, width]), // value -> display
      xMap = function(d) { return xScale(xValue(d));}, // data -> display
      xAxis = d3.axisBottom().scale(xScale);
+ 
   
      // setup y
      var yValue = function(d) { return d[yText];}, // data -> value
@@ -74,6 +77,15 @@ function drawGraph(xText, yText) {
      // don't want dots overlapping axis, so add in buffer to data domain
      xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
      yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+
+     svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2) + 10)
+        .attr("text-anchor", "middle")  
+        .attr("class", "title")
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text(xText + " vs " + yText);
 
       // x-axis
       svg.append("g")
@@ -91,6 +103,7 @@ function drawGraph(xText, yText) {
       // y-axis
       svg.append("g")
         .attr("class", "y-axis")
+
         .call(yAxis)
       svg.append("text")
         .attr("class", "yaxisText")        
@@ -106,11 +119,12 @@ function drawGraph(xText, yText) {
       .enter().append("circle")
       .transition().duration(750)
         .attr("class", "dot")
-        .attr("r", 5)
+        .attr("r", 3.5)
         .attr("cx", xMap)
         .attr("cy", yMap)
-        .style("stroke", "red")    // set the line colour
-        .style("fill", "none");    // set the fill colour 
+        .style("stroke", "steelblue")    // set the line colour
+        .style("opacity", 0.2)   
+        .style("fill", "steelblue") // set the fill colour 
 
       var select = d3.select("#x-value")
 					.on("change", function() {
@@ -131,7 +145,6 @@ function drawGraph(xText, yText) {
 
         d3.csv("gun_violence_data.csv", function(error, data) {
           if (error) throw error;
-      
           data.forEach(function(d) {
             d[yText] = +d[yText]
             if (d[xText] == "Y") {
@@ -142,7 +155,7 @@ function drawGraph(xText, yText) {
               d[xText] = 2
             }
           });
-    
+        
         var xName = d3.nest()
           .key(function(d) { return d[xText]; })
           .rollup(function(v) { return v.length; })
@@ -194,12 +207,12 @@ function drawGraph(xText, yText) {
         .enter().append("circle")
         .transition().duration(750)
           .attr("class", "dot")
-          .attr("r", 5)
+          .attr("r", 3.5)
           .attr("cx", xMap)
           .attr("cy", yMap)
-          .style("stroke", "red")    // set the line colour
-          .style("fill", "none");    // set the fill colour 
-
+          .style("stroke", "steelblue")    // set the line colour
+          .style("opacity", 0.2)   
+          .style("fill", "steelblue")    // set the fill colour 
       }
         )}
   

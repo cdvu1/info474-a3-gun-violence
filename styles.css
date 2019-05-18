@@ -28,10 +28,18 @@ body {
 .line {
   fill: none;
   stroke: steelblue;
+  stroke-width: 1px;
+}
+
+.x-axis, .y-axis {
+  stroke: black;
   stroke-width: 2px;
 }
 
-.dot {
-  background-color: white;
-  border: red solid 1px;
+select {
+  border: 5px solid steelblue;
+}
+
+#dropDown {
+  
 }
