@@ -30,3 +30,8 @@ body {
   stroke: steelblue;
   stroke-width: 2px;
 }
+
+.dot {
+  background-color: white;
+  border: red solid 1px;
+}

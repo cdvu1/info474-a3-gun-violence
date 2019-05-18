@@ -9,24 +9,25 @@
   <script src="index.js"></script>
   <script src="styles.css"></script>
   
-  
+  <div id="graph"></div>
   <div id="dropDown"> 
     <h4>X-Axis</h4>
     <select id="x-value">
       <option value="Random Victims">Random Victims</option>
-      <option value="Targeted Victims">Targeted Victims</option>
+      <option value="Targeted Specific Victim(s)">Targeted Victims</option>
       <option value="Bullied (Y/N/ N/A)">Bullied</option>
       <option value="Domestic Violence (Y/N)">Domestic Violence</option>
+      <option value="Pre-planned school attack">Pre-planned school attack</option>
     </select>
-
+    
     <h4>Y-Axis</h4>
     <select id="y-value">
-      <option value="Killed (includes shooter)">Killed</option>
+      <option value="Killed (includes shooter)">Killed (includes shooter)</option>
       <option value="Wounded">Wounded</option>
       <option value="Total Injured/Killed Victims">Total Injured/Killed Victims</option>
     </select>
     <!-- <button id="submit" onclick="setGraph()">submit</button> -->
-    <div id="graph"></div>
+    
   </div>
 
 </body>
